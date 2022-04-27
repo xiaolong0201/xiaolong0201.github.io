@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Butterfly主题美化日记(持续更新中...)</title>
+      <link href="/archives/b73c6ab8.html"/>
+      <url>/archives/b73c6ab8.html</url>
+      
+        <content type="html"><![CDATA[<h1>基于Butterfly的外挂标签引入</h1><div class="note success simple"><p><strong>参考糖果屋教程</strong></p><div class="tag link"><a class="link-card" title="Tag Plugins Plus" href="https://akilar.top/posts/615e2dec/"><div class="left"><img src="https://npm.elemecdn.com/akilar-candyassets/image/siteicon/favicon.ico"/></div><div class="right"><p class="text">Tag Plugins Plus</p><p class="url">https://akilar.top/posts/615e2dec/</p></div></a></div></div><h1>Hexo的文章多分类和子分类问题</h1><div class="tabs" id=""><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#-1">没有方括号</button></li><li class="tab"><button type="button" data-href="#-2">有方括号</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="-1"><p><strong>这种情况不能列多分类，只能列子分类:</strong></p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">- 母分类</span><br><span class="line">- 子分类</span><br><span class="line">- 子子分类</span><br><span class="line">......</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="-2"><p><strong>这种情况可以列多分类：</strong></p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">- [母分类1,子分类1,子子分类1,...]</span><br><span class="line">- [母分类1,子分类2,...]</span><br><span class="line">- [母分类2,子分类3,...]</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Butterfly主题美化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>笔记9：IO流</title>
       <link href="/archives/fed4c017.html"/>
       <url>/archives/fed4c017.html</url>
