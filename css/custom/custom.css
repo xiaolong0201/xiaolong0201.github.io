@@ -318,6 +318,10 @@ svg.icon {
     background: transparent!important;
     }
 
+#web_bg {
+  background: url(https://typora-wjl.oss-cn-beijing.aliyuncs.com/web_bg.jpg);
+  background-size: cover;
+}
 
 
 
