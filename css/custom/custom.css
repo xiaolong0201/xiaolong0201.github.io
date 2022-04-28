@@ -288,6 +288,40 @@ svg.icon {
 }
 
 
+/* 页脚透明 */
+#footer{
+  background: transparent!important;
+}
+/* 页脚黑色透明玻璃效果移除 */
+#footer::before{
+    background: transparent!important;
+  }
+/* 头图透明 */
+#page-header{
+  background: transparent!important;
+}
+/* 头图遮罩层透明 */
+#page-header::before{
+  background: transparent!important;
+  }
+/*top-img黑色透明玻璃效果移除，不建议加，除非你执着于完全一图流或者背景图对比色明显 */
+#page-header.post-bg:before {
+  background-color: transparent!important;
+}
+/*夜间模式伪类遮罩层透明*/
+[data-theme="dark"]
+  #footer::before{
+      background: transparent!important;
+    }
+[data-theme="dark"]
+  #page-header::before{
+    background: transparent!important;
+    }
+
+
+
+
+
 
 
 /* see https://imlql.cn/post/bb283ed3.html   */  
@@ -302,29 +336,6 @@ svg.icon {
   color: #BA55D3;
 }
 
-
-/* 页脚透明 */
-#footer {
-  background: transparent !important;
-}
-
-
-/* 首页中间打字效果上方 */
-#page-header #site_title {
-  color: #80bdab;
-}
-
-
-/* 顶部导航栏 */
-#nav a {
-  color: #f9f2f4;
-}
-
-
-/*页脚自定义字段字体颜色,也就是配置文件里的footer_custom_text*/
-.footer_custom_text {
-  color: #EEEEEE;
-}
 
 /* 滚动条 */
 ::-webkit-scrollbar {
@@ -380,18 +391,3 @@ a {
     color: #00c4b6;
 }
 
-
-/*文章顶部图透明*/
-#page-header {
-     background: transparent !important;
-}
-#page-header.post-bg:before {
-     position: absolute;
-     top: 0;
-     left: 0;
-     display: block;
-     width: 100%;
-     height: 100%;
-     background: transparent !important; /*这个rgba可以自己改*/
-     content: '';
-}
