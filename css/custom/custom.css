@@ -24,6 +24,12 @@ a#site-name {
 a.article-title, a.blog-slider__title, a.categoryBar-list-link, h1.post-title {
   font-family:Candyhome
 }
+@font-face {
+  global-font-size: '16px'
+  code-font-size: '16px'
+  font-family: ZhuZiAYuanJWD, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Lato, Roboto, "PingFang SC", "STZhongsong", "Lantinghei SC", sans-serif
+  code-font-family: consolas, Menlo, "PingFang SC", "Microsoft JhengHei", "Microsoft YaHei", sans-serif
+}
 
 
 /* 隐藏Aplayer的全局吸底音乐标签 */
