@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blogxiaolong.xyz/archives/d6772fb5.html</loc>
+    
+    <lastmod>2022-04-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blogxiaolong.xyz/archives/0.html</loc>
     
     <lastmod>2022-04-30</lastmod>
@@ -404,6 +413,13 @@
   
   <url>
     <loc>https://blogxiaolong.xyz/categories/%E7%BC%96%E7%A8%8B/DOS/</loc>
+    <lastmod>2022-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blogxiaolong.xyz/categories/%E8%AF%BB%E4%B9%A6/</loc>
     <lastmod>2022-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
