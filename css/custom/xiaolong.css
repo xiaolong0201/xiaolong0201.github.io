@@ -1,4 +1,4 @@
-/*背景样式*/
+/*背景样式--渐变*/
 #recent-posts>.recent-post-item,.layout_page>div:first-child:not(.recent-posts),.layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post {
     background: var(--light_bg_color)
 }
