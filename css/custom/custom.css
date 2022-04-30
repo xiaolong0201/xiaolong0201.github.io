@@ -24,7 +24,9 @@ a#site-name {
 a.article-title, a.blog-slider__title, a.categoryBar-list-link, h1.post-title {
   font-family:Candyhome
 }
-
+body {
+  font-family: 'ZhuZiAYuanJWD';
+}
 
 
 /* 隐藏Aplayer的全局吸底音乐标签 */
