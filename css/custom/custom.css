@@ -49,21 +49,30 @@
   font-display:swap;
   font-weight:lighter
 }
+@font-face {
+  font-family:ZhuZiAYuanJWD;
+  src: ./fonts/consolass.ttf;
+  font-display:swap;
+  font-weight:lighter
+}
 h1#site-title {
   font-family:Candyhome;
   font-size:3em!important
 }
 span#subtitle {
-  font-family: Candyhome
+  font-family:Candyhome
 }
 a#site-name {
-  font-family: Candyhome
+  font-family:Candyhome
 }
 a.article-title, a.blog-slider__title, a.categoryBar-list-link, h1.post-title {
   font-family:Candyhome
 }
 body {
-  font-family: 'ZhuZiAYuanJWD';
+  font-family: ZhuZiAYuanJWD;
+  code-font-family: consolas, Menlo, "PingFang SC";
+  font-size: 16px!important;
+  code-font-size: 16px
 }
 
 
