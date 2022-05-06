@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blogxiaolong.xyz/gallery/index.html</loc>
+    
+    <lastmod>2022-05-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blogxiaolong.xyz/gallery/ohmygirl/index.html</loc>
     
     <lastmod>2022-05-06</lastmod>
@@ -23,15 +32,6 @@
     <loc>https://blogxiaolong.xyz/gallery/wallpaper/index.html</loc>
     
     <lastmod>2022-05-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blogxiaolong.xyz/gallery/index.html</loc>
-    
-    <lastmod>2022-05-05</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
