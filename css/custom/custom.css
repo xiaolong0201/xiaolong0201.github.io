@@ -74,6 +74,11 @@ body {
   font-size: 16px!important;
   code-font-size: 16px
 }
+/* .card-info */
+.card-info {
+  font-family: ZhuZiAYuanJWD;
+  font-size: 20px!important;
+}
 
 
 /* 隐藏Aplayer的全局吸底音乐标签 */
@@ -215,7 +220,7 @@ svg.icon {
   src: url('https://npm.elemecdn.com/akilar-candyassets/fonts/SAOUI.ttf');
   font-display: swap;
 }
-/* 应用于除了作者卡片以为的所有侧栏卡片 */
+/* 应用于除了作者卡片以外的所有侧栏卡片 */
 .card-widget:not(.card-info) {
   overflow: visible !important;
   margin-top: 45px !important;
