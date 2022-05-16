@@ -268,7 +268,28 @@ document.addEventListener('pjax:error', (e) => {
     if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
     butterfly_categories_card_injector_config()
     }
-  </script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><script data-pjax>
+  </script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script>
+  <script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/hexo-github-calendar@1.16/hexo_githubcalendar.js"></script>
+  <script data-pjax>
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://python-github-calendar-api.vercel.app/api?xiaolong0201";
+            var git_color =['#ebedf0', '#fdcdec', '#fc9bd9', '#fa6ac5', '#f838b2', '#f5089f', '#c4067e', '#92055e', '#540336', '#48022f', '#30021f'];
+            var git_user ="xiaolong0201";
+            var parent_div_git = document.getElementById('recent-posts');
+            var git_div_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="width:10%;height:100%;margin:0 auto;display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
+            if(parent_div_git && location.pathname =='/'){
+                console.log('已挂载github calendar')
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('recent-posts')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style>undefined</style><script data-pjax>
   function butterfly_swiper_injector_config(){
     var parent_div_git = document.getElementById('recent-posts');
     var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;archives/b73c6ab8.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="./img/article/cover16.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-04-27</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;archives/b73c6ab8.html&quot;);" href="javascript:void(0);" alt="">Butterfly主题美化日记(持续更新中...)</a><div class="blog-slider__text">Butterfly主题美化</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;archives/b73c6ab8.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;archives/d6772fb5.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="./img/article/cover20.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-04-30</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;archives/d6772fb5.html&quot;);" href="javascript:void(0);" alt="">那些令人惊艳的诗词歌赋</a><div class="blog-slider__text">记录一些诗词歌赋，遇到喜欢的就补充上来</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;archives/d6772fb5.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;archives/0.html&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="./img/article/cover19.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-04-26</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;archives/0.html&quot;);" href="javascript:void(0);" alt="">测试文章</a><div class="blog-slider__text">王同学测试专用</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;archives/0.html&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
@@ -292,25 +313,4 @@ document.addEventListener('pjax:error', (e) => {
   else if (epage === cpage){
     butterfly_swiper_injector_config();
   }
-  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script>
-  <script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/hexo-github-calendar@1.16/hexo_githubcalendar.js"></script>
-  <script data-pjax>
-        function GithubCalendarConfig(){
-            var git_githubapiurl ="https://python-github-calendar-api.vercel.app/api?xiaolong0201";
-            var git_color =['#ebedf0', '#fdcdec', '#fc9bd9', '#fa6ac5', '#f838b2', '#f5089f', '#c4067e', '#92055e', '#540336', '#48022f', '#30021f'];
-            var git_user ="xiaolong0201";
-            var parent_div_git = document.getElementById('recent-posts');
-            var git_div_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="width:10%;height:100%;margin:0 auto;display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
-            if(parent_div_git && location.pathname =='/'){
-                console.log('已挂载github calendar')
-                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
-                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
-            };
-            GithubCalendar(git_githubapiurl,git_color,git_user)
-        }
-        if(document.getElementById('recent-posts')){
-            GithubCalendarConfig()
-        }
-    </script>
-    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
-    <style>undefined</style><!-- hexo injector body_end end --></body></html>
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><!-- hexo injector body_end end --></body></html>
