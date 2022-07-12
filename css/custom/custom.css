@@ -39,19 +39,22 @@
 /* 字体样式 */
 @font-face {
   font-family:Candyhome;
-  src: url(https://cdn.jsdelivr.net/npm/akilar-candyassets/fonts/Candyhome.ttf); 
+  src: url(https://cdn.jsdelivr.net/gh/xiaolong0201/cdn@1.1.2/fonts/Candy.ttf);
+  /* url(https://cdn.jsdelivr.net/npm/akilar-candyassets/fonts/Candyhome.ttf); */
   font-display:swap;
   font-weight:lighter
 }
 @font-face {
   font-family:ZhuZiAYuanJWD;
-  src: url(https://cdn.jsdelivr.net/npm/akilar-candyassets/fonts/ZhuZiAWan.woff2); 
+  src: url(https://cdn.jsdelivr.net/gh/xiaolong0201/cdn@1.1.2/fonts/ZhuZiAWan.woff2);
+  /* url(https://cdn.jsdelivr.net/npm/akilar-candyassets/fonts/ZhuZiAWan.woff2); */
   font-display:swap;
   font-weight:lighter
 }
 @font-face {
   font-family:ZhuZiAYuanJWD;
-  src: ('./fonts/consolass.ttf');
+  src: url(https://cdn.jsdelivr.net/gh/xiaolong0201/cdn@1.1.2/fonts/consolass.ttf);
+  /* url('./fonts/consolass.ttf'); */
   font-display:swap;
   font-weight:lighter
 }
