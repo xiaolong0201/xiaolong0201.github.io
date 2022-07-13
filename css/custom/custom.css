@@ -1,6 +1,7 @@
 /* 一图流 */
 #web_bg{
-  background: url(https://typora-wjl.oss-cn-beijing.aliyuncs.com/web_bg.jpg);
+  background: url(https://typora-wjl.oss-cn-beijing.aliyuncs.com/web_bg2.jpg);
+  /* url(https://typora-wjl.oss-cn-beijing.aliyuncs.com/web_bg1.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
 }
