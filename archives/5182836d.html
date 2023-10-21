@@ -1,0 +1,534 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>笔记1：JavaSE基础语法 | 王同学の小屋</title><meta name="keywords" content="🇦🇽基础语法"><meta name="author" content="王同学"><meta name="copyright" content="王同学"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="狂神说Java学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记1：JavaSE基础语法">
+<meta property="og:url" content="https://blogxiaolong.xyz/archives/5182836d.html">
+<meta property="og:site_name" content="王同学の小屋">
+<meta property="og:description" content="狂神说Java学习笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blogxiaolong.xyz/img/article/cover1.jpg">
+<meta property="article:published_time" content="2022-05-18T07:57:16.916Z">
+<meta property="article:modified_time" content="2022-10-25T11:47:16.166Z">
+<meta property="article:author" content="王同学">
+<meta property="article:tag" content="🇦🇽基础语法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blogxiaolong.xyz/img/article/cover1.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blogxiaolong.xyz/archives/5182836d"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="9sRUA-AmlIjk1rIicDv16Ys28tGQe2YS1zDL0u1DPk0"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ed9251cd0c5481c44f5dbf7b62f7150b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-BP3XW5X4FY"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BP3XW5X4FY');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"该文章创建于","messageNext":"天前，请以最新文章为准！"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '笔记1：JavaSE基础语法',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-25 19:47:16'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"><link rel="stylesheet" href="/css/custom/custom.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/custom/twikoo_beautify.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/custom/fixed_comment.css"  media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 博客</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fa-solid fa-book-open"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fa-solid fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fa-brands fa-bilibili"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fa-solid fa-camera"></i><span> 图库</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa-solid fa-message"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友人账</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="https://blogxiaolong.xyz/hexo-theme-webstack"><i class="fa-fw fa-solid fa-clipboard"></i><span> 导航站</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fa-solid fa-address-card"></i><span> 关于我</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/./img/article/cover1.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">王同学の小屋</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 博客</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fa-solid fa-book-open"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fa-solid fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/bangumis/"><i class="fa-fw fa-brands fa-bilibili"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fa-solid fa-camera"></i><span> 图库</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa-solid fa-message"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友人账</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="https://blogxiaolong.xyz/hexo-theme-webstack"><i class="fa-fw fa-solid fa-clipboard"></i><span> 导航站</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fa-solid fa-address-card"></i><span> 关于我</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">笔记1：JavaSE基础语法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-05-18T07:57:16.916Z" title="发表于 2022-05-18 15:57:16">2022-05-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-10-25T11:47:16.166Z" title="更新于 2022-10-25 19:47:16">2022-10-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/JavaSE/">JavaSE</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="笔记1：JavaSE基础语法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="注释">注释</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">行内注释    //</span><br><span class="line">多行注释    /*     */</span><br><span class="line">文档注释    /**    */</span><br></pre></td></tr></table></figure>
+<h2 id="标识符">标识符</h2>
+<ul>
+<li>关键字</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">abstract</th>
+<th style="text-align:center">assert</th>
+<th style="text-align:center">boolean</th>
+<th style="text-align:center">break</th>
+<th style="text-align:center">byte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">case</td>
+<td style="text-align:center">catch</td>
+<td style="text-align:center">char</td>
+<td style="text-align:center">class</td>
+<td style="text-align:center">const</td>
+</tr>
+<tr>
+<td style="text-align:center">continue</td>
+<td style="text-align:center">default</td>
+<td style="text-align:center">do</td>
+<td style="text-align:center">double</td>
+<td style="text-align:center">else</td>
+</tr>
+<tr>
+<td style="text-align:center">enum</td>
+<td style="text-align:center">extends</td>
+<td style="text-align:center">final</td>
+<td style="text-align:center">finally</td>
+<td style="text-align:center">float</td>
+</tr>
+<tr>
+<td style="text-align:center">for</td>
+<td style="text-align:center">goto</td>
+<td style="text-align:center">if</td>
+<td style="text-align:center">implements</td>
+<td style="text-align:center">import</td>
+</tr>
+<tr>
+<td style="text-align:center">instanceof</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">interface</td>
+<td style="text-align:center">long</td>
+<td style="text-align:center">native</td>
+</tr>
+<tr>
+<td style="text-align:center">new</td>
+<td style="text-align:center">package</td>
+<td style="text-align:center">private</td>
+<td style="text-align:center">protected</td>
+<td style="text-align:center">public</td>
+</tr>
+<tr>
+<td style="text-align:center">return</td>
+<td style="text-align:center">strictfp</td>
+<td style="text-align:center">short</td>
+<td style="text-align:center">static</td>
+<td style="text-align:center">super</td>
+</tr>
+<tr>
+<td style="text-align:center">switch</td>
+<td style="text-align:center">synchronized</td>
+<td style="text-align:center">this</td>
+<td style="text-align:center">throw</td>
+<td style="text-align:center">throws</td>
+</tr>
+<tr>
+<td style="text-align:center">transient</td>
+<td style="text-align:center">try</td>
+<td style="text-align:center">void</td>
+<td style="text-align:center">volatile</td>
+<td style="text-align:center">while</td>
+</tr>
+</tbody>
+</table>
+<p><mark>Java所有的组成部分都需要名字。类名、变量名以及方法名都被称为标识符。</mark></p>
+<h2 id="标识符注意点">标识符注意点</h2>
+<ul>
+<li>所有的标识符都应该以字母（A-Z或者a-z)，美元符（$)、或者下划线（_）开始</li>
+<li>首字母之后可以是字母（A-Z或者a-z)，美元符（$)、下划线（_）或数字的任何字符组合</li>
+<li><mark>不能使用关键字作为变量名或方法名</mark></li>
+<li>标识符是<mark>大小写敏感</mark>的</li>
+<li><mark>可以使用中文命名，但是一般不建议这样去使用，也不建议使用拼音，很low</mark></li>
+</ul>
+<h2 id="数据类型">数据类型</h2>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://typora-wjl.oss-cn-beijing.aliyuncs.com/%E5%9F%BA%E7%A1%8003.png" alt=""></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//八大基本数据类型</span><br><span class="line"></span><br><span class="line">        //整数</span><br><span class="line">        int num1 = 10;  //最常用</span><br><span class="line">        byte num2 = 20;</span><br><span class="line">        short num3 = 30;</span><br><span class="line">        long num4 = 40L;  //Long类型要在数字后面加个L</span><br><span class="line"></span><br><span class="line">        //小数：浮点数</span><br><span class="line">        float num5 =50.1F;   //float类型要在数字后面加个F</span><br><span class="line">        double num6 = 3.141592653;</span><br><span class="line"></span><br><span class="line">        //字符</span><br><span class="line">        char name =&#x27;A&#x27;;</span><br><span class="line">        //字符串，String不是关键字，是一个类</span><br><span class="line">        String namea = &quot;阿龙&quot;;</span><br><span class="line"></span><br><span class="line">        //布尔值:是非</span><br><span class="line">        boolean flag = true;</span><br><span class="line">        //boolean flag =flase;</span><br></pre></td></tr></table></figure>
+<h2 id="数据类型扩展">数据类型扩展</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//整数拓展 ：  进制   二进制0b  十进制  八进制0  十六进制0x</span><br><span class="line">       int i = 10;</span><br><span class="line">       int i2 = 010;   //八进制0</span><br><span class="line">       int i3 = 0x10;  //十六进制0x   0~9 A~F</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//浮点数拓展?   银行业务怎么表示？ 钱</span><br><span class="line">//BigDecimal  数学工具类</span><br><span class="line"></span><br><span class="line">//float    有限 离散 舍入误差 大约 接近但不等于</span><br><span class="line">//double</span><br><span class="line">//最好完全使用浮点数进行比较</span><br><span class="line">//最好完全使用浮点数进行比较</span><br><span class="line">//最好完全使用浮点数进行比较</span><br><span class="line"></span><br><span class="line">float f= 0.1f;      //0.1</span><br><span class="line">double d= 1.0/10;   //0.1</span><br><span class="line">System.out.println(f==d);   //flase</span><br><span class="line"></span><br><span class="line">float d1 = 23232323233232323f;</span><br><span class="line">float d2 = d1 + 1;</span><br><span class="line">System.out.println(d1==d2);  //true</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//字符拓展？</span><br><span class="line"></span><br><span class="line">        char c1 = &#x27;a&#x27;;</span><br><span class="line">        char c2 = &#x27;中&#x27;;</span><br><span class="line"></span><br><span class="line">        System.out.println(c1);</span><br><span class="line">        System.out.println((int)c1); //强制转换</span><br><span class="line">        System.out.println(c2);</span><br><span class="line">        System.out.println((int)c2); //强制转换</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//所有的字符本质还是数字</span><br><span class="line">        //编码  Unicode  表: (97=a  65=A) 2字节  0 - 65536   Excel    2^16=65536</span><br><span class="line">        //U0000 UFFFF</span><br><span class="line">        char c3 = &#x27;\u0061&#x27;;</span><br><span class="line">        System.out.println(c3); //a</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//转义字符</span><br><span class="line">        // \t   制表符</span><br><span class="line">        // \n   换行</span><br><span class="line">        //...</span><br><span class="line">        System.out.println(&quot;Hello\tworld&quot;);</span><br></pre></td></tr></table></figure>
+<p><mark>下方代码块内容以后会学到，从内存方面解释原因</mark></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">String sa = new String(&quot;hello world&quot;);</span><br><span class="line">        String sb = new String(&quot;hello world&quot;);</span><br><span class="line">        System.out.println(sa==sb);   //false</span><br><span class="line"></span><br><span class="line">        String sc = &quot;hello world&quot;;</span><br><span class="line">        String sd = &quot;hello world&quot;;</span><br><span class="line">        System.out.println(sc==sd);   //true</span><br><span class="line">        //对象 从内存分析</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//布尔值扩展</span><br><span class="line">        boolean flag = true;</span><br><span class="line">        if(flag==true)&#123;&#125;  //新手</span><br><span class="line">        if（flag)&#123;&#125;       //老手</span><br><span class="line">        //Less is More!   代码要精简易读</span><br></pre></td></tr></table></figure>
+<h2 id="类型转换">类型转换</h2>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://typora-wjl.oss-cn-beijing.aliyuncs.com/%E5%9F%BA%E7%A1%8005.png" alt=""></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int i = 128;</span><br><span class="line">byte b = (byte)i;   //内存溢出</span><br><span class="line">double b1 = (byte)i;</span><br><span class="line">//上边加了括号的转换是强制转换  (类型)变量名  高--低</span><br><span class="line">//                  自动转换               低--高</span><br><span class="line">        </span><br><span class="line">        System.out.println(i);  //128</span><br><span class="line">        System.out.println(b);  //-128</span><br></pre></td></tr></table></figure>
+<p><mark>1. 不能对布尔值进行转换</mark></p>
+<p><mark>2.不能把对象类型转换为不相干的类型</mark></p>
+<p><mark>3.在把大容量转换到低容量时，强制转换</mark></p>
+<p><mark>4.转换的时候可能存在内存溢出，或者精度问题！</mark></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.out.println((int)23.7);      //23</span><br><span class="line">System.out.println((int)-45.89f);  //-45</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">char c = &#x27;a&#x27;;</span><br><span class="line">int d = c+1;</span><br><span class="line">System.out.println(d);           //98</span><br><span class="line">System.out.println((char)d);     //b</span><br></pre></td></tr></table></figure>
+<p>操作比较大的数的时候，注意溢出问题</p>
+<p><mark>JDK7新特性，数字之间可以用下划线分割</mark></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int money = 10_0000_0000;</span><br><span class="line">int years = 20;</span><br><span class="line">int total = money*years;    //-1474836480,计算的时候溢出了</span><br><span class="line">long total2 = money*years;  //-1474836480  默认是int，转换之前已经存在问题了？</span><br><span class="line">long total3 = money*((long)years);  //20000000000 先把一个数转换为long</span><br><span class="line">为避免l L大小写和数字1混淆，尽量都用大写（F  L)</span><br></pre></td></tr></table></figure>
+<h2 id="变量">变量</h2>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://typora-wjl.oss-cn-beijing.aliyuncs.com/%E5%9F%BA%E7%A1%800601.png" alt=""></p>
+<h2 id="变量作用域">变量作用域</h2>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://typora-wjl.oss-cn-beijing.aliyuncs.com/%E5%9F%BA%E7%A1%800602.png" alt=""></p>
+<p>局部变量：方法里面</p>
+<p>实例变量：方法外面，类的里面。从属于对象；如果不进行初始化，这个类型的默认值。所有的数值类型初始化为0或0.0，字符串类型初始化为u0000，布尔值类型初始化为false，除了基本类型，其余的默认值都是null</p>
+<p>类变量：加了static关键词的变量（暂时先这么认为）；方法外面，类的里面；从属于类，随着类一起存在、一起消失。</p>
+<h2 id="常量">常量</h2>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://typora-wjl.oss-cn-beijing.aliyuncs.com/%E5%9F%BA%E7%A1%800603.png" alt=""></p>
+<p>变量类型前边的都是修饰符，修饰符不存在先后顺序</p>
+<h2 id="变量的命名规范">变量的命名规范</h2>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://typora-wjl.oss-cn-beijing.aliyuncs.com/%E5%9F%BA%E7%A1%800604.png" alt=""></p>
+<h2 id="运算符">运算符</h2>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://typora-wjl.oss-cn-beijing.aliyuncs.com/%E5%9F%BA%E7%A1%8007.png" alt=""></p>
+<ul>
+<li>IDEA常用快捷键ctrl+D: 复制当前行到下一行</li>
+<li>在有Long类型数据参与运算时，结果为Long类型</li>
+<li>在无Long类型数据参与运算时，无论参与运算的有无Int类型，结果都为Int类型</li>
+</ul>
+<hr>
+<h3 id="算术运算符">算术运算符</h3>
+<p>二元运算符：+ - * /</p>
+<p>一元运算符：++ (自增运算符)    – (自减运算符)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo03</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> a++;  <span class="comment">//执行完这行代码后，先给b赋值，再自增</span></span><br><span class="line">        System.out.println(a);  <span class="comment">//4</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">c</span> <span class="operator">=</span> ++a;  <span class="comment">//执行完这行代码前，先自增，再给c赋值</span></span><br><span class="line">        System.out.println(a);  <span class="comment">//5</span></span><br><span class="line">        System.out.println(b);  <span class="comment">//3</span></span><br><span class="line">        System.out.println(c);  <span class="comment">//5</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>很多运算，我们会使用一些工具类来操作！(Math.)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">pow</span> <span class="operator">=</span> Math.pow(<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line">System.out.println(pow);  <span class="comment">//8</span></span><br></pre></td></tr></table></figure>
+<h3 id="逻辑运算符">逻辑运算符</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo04</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//与(and)  或(or)  非（取反）</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">a</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">b</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line">        System.out.println(<span class="string">&quot;a &amp;&amp; b:&quot;</span>  +(b&amp;&amp;a));  <span class="comment">//逻辑与运算：两个变量都为真，结果才为true</span></span><br><span class="line">        System.out.println(<span class="string">&quot;a || b:&quot;</span>  +(b||a));  <span class="comment">//逻辑或运算：两个变量有一个为真，则结果为true</span></span><br><span class="line">        System.out.println(<span class="string">&quot;! a &amp;&amp; b:&quot;</span>  +!(b&amp;&amp;a));  <span class="comment">//如果是真，则变为假，如果是假则变为真</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//短路运算</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">c</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">d</span> <span class="operator">=</span> (c&lt;<span class="number">4</span>)&amp;&amp;(c++&lt;<span class="number">4</span>);</span><br><span class="line">        System.out.println(d);  <span class="comment">//false</span></span><br><span class="line">        System.out.println(c);  <span class="comment">//5</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="位运算">位运算</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo05</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        A = 0011 1100</span></span><br><span class="line"><span class="comment">        B = 0000 1101</span></span><br><span class="line"><span class="comment">        --------------------------</span></span><br><span class="line"><span class="comment">        A$B = 0000 1100</span></span><br><span class="line"><span class="comment">        A|B = 0011 1101</span></span><br><span class="line"><span class="comment">        A^B = 0011 0001</span></span><br><span class="line"><span class="comment">        ~B = 1111 0010</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        2*8 = 16    2*2*2*2</span></span><br><span class="line"><span class="comment">        效率极高</span></span><br><span class="line"><span class="comment">        &lt;&lt;    *2   (左移=乘以2)</span></span><br><span class="line"><span class="comment">        &gt;&gt;    /2   (右移=除以2)</span></span><br><span class="line"><span class="comment">        0000 0000    0</span></span><br><span class="line"><span class="comment">        0000 0001    1</span></span><br><span class="line"><span class="comment">        0000 0010    2</span></span><br><span class="line"><span class="comment">        0000 0011    3</span></span><br><span class="line"><span class="comment">        0000 0100    4</span></span><br><span class="line"><span class="comment">        0001 1000    8</span></span><br><span class="line"><span class="comment">        0001 0000    16</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        System.out.println(<span class="number">2</span>&lt;&lt;<span class="number">3</span>);  <span class="comment">//16</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="扩展赋值运算符以及字符串连接符">扩展赋值运算符以及字符串连接符</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo06</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">        a+=b;  <span class="comment">//a = a+b</span></span><br><span class="line">        a-=b;  <span class="comment">//a = a-b</span></span><br><span class="line">        System.out.println(a);        <span class="comment">//10</span></span><br><span class="line">        <span class="comment">//字符串连接符  +</span></span><br><span class="line">        System.out.println(<span class="string">&quot;&quot;</span>+a+b);   <span class="comment">//1020</span></span><br><span class="line">        System.out.println(a+b+<span class="string">&quot;&quot;</span>);  <span class="comment">//30</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="三元运算符">三元运算符</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo07</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">     <span class="comment">//x ? y : z</span></span><br><span class="line">     <span class="comment">//如果x==true,则结果为y,否则结果为z</span></span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">score</span> <span class="operator">=</span> <span class="number">80</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">type</span> <span class="operator">=</span> score &lt;<span class="number">60</span> ?<span class="string">&quot;不及格&quot;</span>:<span class="string">&quot;及格&quot;</span>;</span><br><span class="line">        System.out.println(type);  <span class="comment">//及格</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="包机制">包机制</h2>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://typora-wjl.oss-cn-beijing.aliyuncs.com/%E5%8C%85%E6%9C%BA%E5%88%B6.png" alt=""></p>
+<p><mark>包的本质就是一个文件夹</mark></p>
+<p>IDEA取消紧凑型中间包：Project右侧齿轮-&gt;Tree Appearance-&gt;取消Compact Middle Packages</p>
+<p>定义包：package</p>
+<p>引入包：import</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>.com.wang.base.*; <span class="comment">//*是通配符，此语句表示导入包下所有的类</span></span><br></pre></td></tr></table></figure>
+<p><mark>观看阿里巴巴开发手册</mark></p>
+<h2 id="JavaDoc">JavaDoc</h2>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://typora-wjl.oss-cn-beijing.aliyuncs.com/Doc.png" alt=""></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wang</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0  //在方法外面就是类注释</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span> 1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Doc</span> &#123;</span><br><span class="line">    String name;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@author</span> wang</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name  //在方法里面就是方法注释</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">test</span><span class="params">(String name)</span> <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在线api帮助文档：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.oracle.com/javase/8/docs/api/">https://docs.oracle.com/javase/8/docs/api/</a></p>
+<hr>
+<p>通过命令行生产JavaDoc文档！</p>
+<ul>
+<li>选择类，右击–Open in–Explorer–地址栏前cmd+空格</li>
+<li>输入javados -encoding -UTF8 -charset -UTF8 Dos.java,回车</li>
+<li>目录下生成很多根文件，打开index.html可看到类，构造器等内容</li>
+</ul>
+<p>javados—生成文档</p>
+<p>-encoding -UTF8 -charset -UTF8 —实现中文，不出现乱码</p>
+<p>Dos.java —指向IDEA的文件名，Dos是程序包的名字</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined" rel="external nofollow noreferrer">王同学</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blogxiaolong.xyz/archives/5182836d.html">https://blogxiaolong.xyz/archives/5182836d.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blogxiaolong.xyz" target="_blank">王同学の小屋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%F0%9F%87%A6%F0%9F%87%BD%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">🇦🇽基础语法</a></div><div class="post_share"><div class="social-share" data-image="/./img/article/cover1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/./img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/./img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">王同学</div><div class="author-info__description"><div style="text-align:center;"><b>君子终日乾乾，<br>夕惕若厉，无咎。</b></div></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><a id="card-info-btn" href="https://blogxiaolong.xyz/"><i class="fab fa-github"></i><span>欢迎来到王同学の小屋</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xiaolong0201" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:wjl1562063077@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=1562063077&amp;website=www.oicqzone.com" rel="external nofollow noreferrer" target="_blank" title="QQ"><i class="fa-brands fa-qq"></i></a><a class="social-icon" href="https://space.bilibili.com/85819727" rel="external nofollow noreferrer" target="_blank" title="bilibili"><i class="fa-brands fa-bilibili"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这里主要用来记录本人的学习笔记、分享日常生活的点滴，努力建造自己的小屋，over！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">1.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-number">2.</span> <span class="toc-text">标识符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-number">3.</span> <span class="toc-text">标识符注意点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%89%A9%E5%B1%95"><span class="toc-number">5.</span> <span class="toc-text">数据类型扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">6.</span> <span class="toc-text">类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-number">7.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">8.</span> <span class="toc-text">变量作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-number">9.</span> <span class="toc-text">常量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="toc-number">10.</span> <span class="toc-text">变量的命名规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">11.</span> <span class="toc-text">运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">11.1.</span> <span class="toc-text">算术运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">11.2.</span> <span class="toc-text">逻辑运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="toc-number">11.3.</span> <span class="toc-text">位运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BB%A5%E5%8F%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%9E%E6%8E%A5%E7%AC%A6"><span class="toc-number">11.4.</span> <span class="toc-text">扩展赋值运算符以及字符串连接符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">11.5.</span> <span class="toc-text">三元运算符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%85%E6%9C%BA%E5%88%B6"><span class="toc-number">12.</span> <span class="toc-text">包机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaDoc"><span class="toc-number">13.</span> <span class="toc-text">JavaDoc</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/archives/4e6e7367.html" title="SolidWorks2020彻底卸载与重新安装（个人用）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/article/cover6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SolidWorks2020彻底卸载与重新安装（个人用）"/></a><div class="content"><a class="title" href="/archives/4e6e7367.html" title="SolidWorks2020彻底卸载与重新安装（个人用）">SolidWorks2020彻底卸载与重新安装（个人用）</a><time datetime="2022-12-02T12:14:31.376Z" title="发表于 2022-12-02 20:14:31">2022-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/528fc6dc.html" title="我的首次域名备案"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/article/cover5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="我的首次域名备案"/></a><div class="content"><a class="title" href="/archives/528fc6dc.html" title="我的首次域名备案">我的首次域名备案</a><time datetime="2022-11-22T11:15:38.794Z" title="发表于 2022-11-22 19:15:38">2022-11-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/c4ba1f7b.html" title="hexo问题集锦"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/article/cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo问题集锦"/></a><div class="content"><a class="title" href="/archives/c4ba1f7b.html" title="hexo问题集锦">hexo问题集锦</a><time datetime="2022-11-13T07:47:07.821Z" title="发表于 2022-11-13 15:47:07">2022-11-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/e1341960.html" title="hexo博客源码备份（git版本控制）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/article/cover3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo博客源码备份（git版本控制）"/></a><div class="content"><a class="title" href="/archives/e1341960.html" title="hexo博客源码备份（git版本控制）">hexo博客源码备份（git版本控制）</a><time datetime="2022-11-13T07:18:31.066Z" title="发表于 2022-11-13 15:18:31">2022-11-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/cc1b9611.html" title="JavaScript"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/article/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript"/></a><div class="content"><a class="title" href="/archives/cc1b9611.html" title="JavaScript">JavaScript</a><time datetime="2022-11-04T14:33:27.077Z" title="发表于 2022-11-04 22:33:27">2022-11-04</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/./img/article/cover1.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By 王同学</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo.blogxiaolong.xyz/',
+      region: '',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.vemoji)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.blogxiaolong.xyz/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      document.getElementById('twikoo-count').innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script src="https://cdn.jsdelivr.net/gh/weilain/cdn-photo/js/jquery.min.js"></script><script src="/js/sun_moon.js" async></script><script src="/js/fixed-pagination.js" async></script><div class="aplayer no-destroy" data-id="2067079376" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><script data-pjax defer src="/js/custom/fixed_comment.js"></script><script async src="/js/custom/diytitle.js"></script><script async src="/js/custom/grayscale.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-BP3XW5X4FY', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+    function butterfly_categories_card_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(./img/article/cover1.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/教程/&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer">教程</a><span class="categoryBar-list-count">7</span><span class="categoryBar-list-descr">教程</span></li><li class="categoryBar-list-item" style="background:url(./img/article/cover11.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/读书/&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer">读书</a><span class="categoryBar-list-count">2</span><span class="categoryBar-list-descr">编程</span></li><li class="categoryBar-list-item" style="background:url(./img/article/cover2.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/编程/&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer">编程</a><span class="categoryBar-list-count">19</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(./img/article/cover12.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/编程/JavaSE/&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer">JavaSE</a><span class="categoryBar-list-count">15</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(./img/article/cover3.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/编程/DOS/&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer">DOS</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(./img/article/cover13.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/编程/前端基础/&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer">前端基础</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr"></span></li></ul></div></div>';
+      console.log('已挂载butterfly_categories_card')
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      }
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    butterfly_categories_card_injector_config()
+    }
+  </script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;archives/b73c6ab8.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="./img/article/cover16.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-05-18</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;archives/b73c6ab8.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt="">Butterfly主题美化日记(持续更新中...)</a><div class="blog-slider__text">Butterfly主题美化</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;archives/b73c6ab8.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;archives/9dec5912.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="./img/article/cover0.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-07-16</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;archives/9dec5912.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt="">读过的书，走过的路</a><div class="blog-slider__text">所读，所想</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;archives/9dec5912.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;archives/d6772fb5.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="./img/article/cover20.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-05-18</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;archives/d6772fb5.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt="">那些令人惊艳的诗词歌赋</a><div class="blog-slider__text">记录一些诗词歌赋，遇到喜欢的就补充上来</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;archives/d6772fb5.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;archives/0.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="./img/article/cover19.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-05-18</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;archives/0.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt="">测试文章</a><div class="blog-slider__text">王同学测试专用</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;archives/0.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><div id="ghbdages" style="overflow:hidden;max-height:90px;height:auto;text-align:center;margin-top:10px"><div class="swiper-wrapper"><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://hexo.io/" rel="external nofollow noreferrer" style="margin-inline:5px" title="博客框架为Hexo_v6.3.0"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" rel="external nofollow noreferrer" style="margin-inline:5px" title="主题版本Butterfly_v4.1.0"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" rel="external nofollow noreferrer" style="margin-inline:5px" title="本站使用JsDelivr为静态资源提供CDN加速"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://vercel.com/" rel="external nofollow noreferrer" style="margin-inline:5px" title="本站采用双线部署，默认线路托管于Vercel"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://coding.net/" rel="external nofollow noreferrer" style="margin-inline:5px" title="本站采用双线部署，联通线路托管于Coding"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" rel="external nofollow noreferrer" style="margin-inline:5px" title="本站项目由Github托管"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a><a class="github-badge" target="_blank" href="https://icp.gov.moe/?keyword=20229702/" rel="external nofollow noreferrer" style="margin-inline:5px" title="本站已加入萌ICP豪华套餐，萌ICP备20229702号"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/%E8%90%8CICP%E5%A4%87-20229702%E5%8F%B7-fe1384?style-flat&amp;logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+nhxg7wAAByxJREFUSInl1nlwVeUZx/HPuTckkD0kQFiCEEIUlNUCAqKoSBV1AIt1ikpVLFbLONjWGUXbmWrbweJMy7hUxbbTjsUq6KCiWEvr0kE2WVK2QCKBJCxJgEASsienfxwqMob+3Zm+f93z3vM+32f5vc9z+H9bwVcfOp/YQ+1prhhEZS1VDQzqQ1MjiQmIC5Liwm3lBWpqFimrulb/7A/067vM2IsOBZ2h8MhJQW6KMDNVsKeaizKEyUlsKueqgWJ39AMJF3QpDCNYr1SaEig/lWNX2Z1h6dH5/lVyGdVIZFf7MHo9bEfh9rCg/+8NyHlN77QTsnpQ0i2y08VK+BosfhbW0cHxqmSfFd9qW+l9Pi+5WltFdGTsOBbO5dJcdh3lN5+xff0Y2zuelXjRsyYUrjOu4BVJaavlpbWIJRBLOM+J81O95AAnTtM9vNHGknut3zdT48FutJE3koWTuG4oSXH+VsInX3B9IdcVUNfCuv08t4GjO6NspOa3BNcOXx1eOugVHQnrTMkTuyWrC/BjRZO9uPYTpw7HhTWkXcLd45l9GblpHD7NWzt5ZTMXZ/OdkTy+lvR07rmcmWffq6pn9W5e/oymfcT6kJbXHiydMyVYkL/x66n+ZMcctQfjhgxl6UIGZ3Ooltd2RIZqjqKRS0ew9cFIA1cO5urlLHuPZWsZPJiZw7gqn0VT2HCIR9+jvCQhfHPrLGyE2Hng2roBxHnmJoZnc9drbD3I6QaaWkjpSVoeu4+x5XB05qMDqCenHz37UHmcFRv54ZuMeoYrB/L0DPRgZ0WfrsXVKzPX3nYykrn3dUZl8+Q0Qox/gc/L6ZlKzxQefo+UROpa6Z4VCedkPd8YyJYHI3u5T/HAShZNQxsXZfR3pCtwRW066VEeOuIUVUf77+9jTw2pycTOJml7Je1t9EgiI5X2jkgyze1fCSSdtjhBiJCkpKyuI+5oTdAtkTCgVwrbKsl8ko6QjO40tZ67EpkpdIbRf20dkbPpPTjdwsSX6I5dJYy4hoQAaZQdDy4A1iEMI613T6LtBPXJpPakrjGqc1Y6CTFq62htJp5KRwPJKWSkU3WKiiPEEqO6xgM6oZmctJhDXYH7Z59xuCyKpK6R26ZE+ys3MWYoN1/Mc5uoqmbEQJ6fTc/ulJ3i/lUc+YIfzeKhKzjVHN31A3XRHddKSrf6/6DOV3VTcw1hVKfkxOhaPDAe1UwfwmNTqT1Drxw+nE9xNXetIjHG2vnoxoT+rNrN2Of58Rp6JZ+ldKes5kjX4G7dKuikpoERfaltYnQ/DOSS3hEAFk9lXQkLnmf7Ib65lPJT3HU1+46Tm8rYvgzKYVA2h+vQIMjvewHwdSN20MiOSmZczO4a1hSzYi77T7CiiPF5JMTZexjJ5OagkwNV9M+MnJ09nKU3smgyQ3PYWoEO4fUjii4QceJmevJuMeP6csUAln4atcbSGoqOUpjD30uZNwnpHNtN3lC+NZa1xeT34pGVTJ3PL9+Ohs6GQ8gVtHZs6VLVwZhBReGwoXvt3THM/hP0SWVnCR8f4PMjkffjB/DQS8waxpHFfFgaaeHZDRRtJn0yP5tF31ymFVJ2nN27GD66KBzca2/XEWdkUpD3Fmd4tYj0FMS54Q9UnuaDUv6yE/24ewWP/DU6N/d1fvousYEs28DyLVEvGDOAt/egmSkXv2VYn3NBfpXbua6J8hMFFvy2RHsL+57gmX+w/AN651PfEDWQzLRI+afqIqOxFDJT6Rbn9Bmad3PnTH5wIxOXkJTWGiz57hCDsyqDWVldRNzeyOh+paaPfpFKnvqQX88iZwDVx0lLJqUHbe3EkZ1Odm+yUqK2GHYKmhvIG8fyeTz9IY5x67jnFPapdPDkl6jzwEF9IDjZJlgwfbG+o2u8+g4rd7D/UYI41TXnevV5K4j2q6uESckUP8rvNrH6fUH/sRXB9AlPONMSDZ8uazwoi56JjEyvdftV88jinhf4uIzmJRQOoOYgja0RKAiIBZxpjvZH5tP0c97axcLlyBXOuWZemJTYFFbUCU+1dl3j8PGSyFhnJ7EkYcWh7/njqpep5xfzWTyZZ7dEg73xOJKiGqf3YenNLBjLTz7i539COg/OvSOYO2GFo/VRG0Zwe0YX4Ns3R7NXSCxBeM8IthXfZvGf3xCWc/kkXvg2vVP4YB/rDzC1gGlDo+50/xvs2khKPrNnzAzmTH5HbzR0fkkKro93Ab5vx9kfaGgT3lLA5EyWbRpoTdHbSreOppGJV/PwlRTksK+aZz5l6z+RLBgxaau5k2cJelTKzmRQMq0d51J8UxL+23d1TDTcj7WQllZu4YwxDo+eZc22X9mwd6gN65GIFmQzampxcMOoR1xeuMbpVoqromsXdG3+wmCiekNtfSSmiUNWu2zgap+WjlZW8X11TeNkpWwICvNfCm8u3Cmxg4PN0VdmEJw7/7+0/g32RaqCbhRecAAAAABJRU5ErkJggg==" alt=""/></a></div></div></div><style>a.github-badge:hover:before {display:none}</style>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-footer-beautify/lib/swiperbdage_init.min.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
