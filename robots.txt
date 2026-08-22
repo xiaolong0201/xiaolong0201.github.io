@@ -1,0 +1,7 @@
+# hexo robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://blogxiaolong.xyz/sitemap.xml
+Sitemap: https://blogxiaolong.xyz/baidusitemap.xml
+
